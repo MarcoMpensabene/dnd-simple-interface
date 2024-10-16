@@ -2,19 +2,30 @@ body {
     background-color: white;
 }
 
-#neutralinoapp {
-    text-align: center;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
+#game-area {
+    width: 80%;
+    height: 85vh;
+    border: 2px solid black;
+    background-size: cover;
+    background-position: center;
 }
 
-#neutralinoapp h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px; /* Spazio tra le celle */
+    width: 1200px; /* Larghezza della griglia */
+    height: 800px; /* Altezza della griglia */
+    border: 2px solid black; /* Bordo intorno alla griglia */
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
-#neutralinoapp > div {
-    font-size: 16px;
-    font-weight: normal;
+.grid-cell {
+    background-color: lightgray;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
 }

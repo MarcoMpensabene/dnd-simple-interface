@@ -95,5 +95,58 @@ if(NL_OS != "Darwin") { // TODO: Fix https://github.com/neutralinojs/neutralinoj
     setTray();
 }
 
+function setBackground() {
+    const fileInput = document.getElementById('upload-background');
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const gameArea = document.getElementById('game-area');
+            gameArea.style.backgroundImage = `url(${event.target.result})`;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+const grid = document.getElementById('characters-grid');
+
+// Eventi per drag & drop
+// grid.addEventListener('dragover', (e) => e.preventDefault());
+// grid.addEventListener('drop', (e) => {
+//     e.preventDefault();
+//     const id = e.dataTransfer.getData('text');
+//     const character = document.getElementById(id);
+//     grid.appendChild(character);
+// });
+
+// Creazione dei personaggi
+function addCharacter(imgSrc) {
+    const character = document.createElement('img');
+    character.src = imgSrc;
+    character.draggable = true;
+    character.id = `character-${Date.now()}`;
+    character.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text', character.id);
+    });
+    grid.appendChild(character);
+}
+
+// Numero di righe e colonne della griglia
+const rows = 6;
+const cols = 3;
+const totalCells = rows * cols;
+
+// Seleziona il contenitore della griglia
+const gameBoard = document.querySelector('.game-board');
+
+// Crea le celle dinamicamente
+for (let i = 1; i <= totalCells; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('grid-cell');
+    cell.id = `cell-${i}`;
+    gameBoard.appendChild(cell);
+}
+
+
 // Display app information
 showInfo();
