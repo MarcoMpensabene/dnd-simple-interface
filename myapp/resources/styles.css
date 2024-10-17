@@ -12,17 +12,17 @@ body {
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 5px; /* Spazio tra le celle */
-    width: 1200px; /* Larghezza della griglia */
-    height: 800px; /* Altezza della griglia */
-    border: 2px solid black; /* Bordo intorno alla griglia */
+    width: 50%; /* Larghezza della griglia */
+    height: 50%; /* Altezza della griglia */
     margin: 0 auto;
     margin-top: 20px;
+    grid-template-columns: repeat(6, 1fr); /* 6 colonne di uguale larghezza */
+    grid-template-rows: repeat(6, 1fr); /* 6 righe di uguale altezza */
 }
 
 .grid-cell {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.5);
     border: 1px solid #333;
     display: flex;
     align-items: center;

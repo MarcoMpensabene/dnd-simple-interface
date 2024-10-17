@@ -133,7 +133,7 @@ function addCharacter(imgSrc) {
 
 // Numero di righe e colonne della griglia
 const rows = 6;
-const cols = 3;
+const cols = 6;
 const totalCells = rows * cols;
 
 // Seleziona il contenitore della griglia
